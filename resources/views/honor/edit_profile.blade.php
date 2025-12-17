@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Primary Meta Tags -->
-    <title>ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G</title>
-    <meta name="title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta name="description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล รวมมูลค่ากว่า 3.2 ล้านบาท | ร่วมกิจกรรม 4 ธ.ค. 68 – 11 ม.ค. 69 | ประกาศผล 13 ม.ค. 69">
+    <title>Electric Vehicle Association of Thailand (EVAT)</title>
+    <meta name="title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta name="description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://honorluckydraw.com/">
-    <meta property="og:title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta property="og:description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล มูลค่ารวมกว่า 3.2 ล้านบาท">
+    <meta property="og:title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta property="og:description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
     <meta property="og:image" content="{{ url('img/honor/224402.jpg') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -20,9 +20,10 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://honorluckydraw.com/">
-    <meta property="twitter:title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta property="twitter:description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล มูลค่ารวมกว่า 3.2 ล้านบาท">
+    <meta property="twitter:title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta property="twitter:description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
     <meta property="twitter:image" content="{{ url('img/honor/224402.jpg') }}">
+
       <link rel="stylesheet" href="{{ url('/home/assets/css/honor.css') }}?v={{ time() }}" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -83,7 +84,7 @@
 
     <header class="page-header">
         <a href="{{ url('/') }}">
-            <img src="{{ url('img/honor/logo@2x.png') }}" alt="HONOR Logo" style="margin-left:20px">
+            <img src="{{ url('img/honor/logo-evat.png') }}" alt="HONOR Logo" style="margin-left:20px">
         </a>
         <a href="{{ url('/logout-honor') }}" class="btn-logout-header">
                 <i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ
@@ -244,10 +245,11 @@
 
     <footer class="page-footer2">
         <div class="copyright2">
-            © 2025 HONOR Thailand All rights reserved. <br>
-            <a href="{{ url('/terms') }}" class="footer-link">เงื่อนไขกิจกรรม</a> |
-            <a href="{{ url('/privacy-policy') }}" class="footer-link">นโยบายความเป็นส่วนตัว</a>
-        </div>
+               สมาคมยานยนต์ไฟฟ้าไทย ©2025 All rights reserved. Web <br>
+               Design by Idea Vivat.
+                <a href="{{ url('/terms') }}" class="footer-link">เงื่อนไขกิจกรรม</a> |
+                <a href="{{ url('/privacy-policy') }}" class="footer-link">นโยบายคุ้มครองข้อมูลส่วนบุคคล</a>
+            </div>
     </footer>
 
 </div>

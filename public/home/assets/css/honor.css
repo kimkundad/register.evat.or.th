@@ -59,7 +59,7 @@ body {
 }
 
 .page-header img {
-  width: 120px;
+  width: 78px;
   height: auto;
 }
 
@@ -191,8 +191,8 @@ body {
 a.btn-confirm,
 button.btn-confirm {
   font-family: 'Anuphan', sans-serif;
-  background-color: #1e1d23;
-  color: #ffffff;
+  background: linear-gradient(to right, rgb(183, 226, 107), rgb(165, 233, 240));
+  color: #000;
   border: none;
   padding: 16px 40px;
   font-size: 18px;
@@ -542,7 +542,7 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 2px 20px;
 }
 .btn-logout {
     display: inline-block;
@@ -564,7 +564,6 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
 }
 
 .btn-logout-header {

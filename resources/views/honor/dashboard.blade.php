@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Primary Meta Tags -->
-    <title>ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G</title>
-    <meta name="title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta name="description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล รวมมูลค่ากว่า 3.2 ล้านบาท | ร่วมกิจกรรม 4 ธ.ค. 68 – 11 ม.ค. 69 | ประกาศผล 13 ม.ค. 69">
+    <title>Electric Vehicle Association of Thailand (EVAT)</title>
+    <meta name="title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta name="description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://honorluckydraw.com/">
-    <meta property="og:title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta property="og:description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล มูลค่ารวมกว่า 3.2 ล้านบาท">
+    <meta property="og:title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta property="og:description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
     <meta property="og:image" content="{{ url('img/honor/224402.jpg') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -21,9 +21,11 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://honorluckydraw.com/">
-    <meta property="twitter:title" content="ลุ้นขับ Mercedes-Benz เมื่อซื้อ HONOR X9d 5G">
-    <meta property="twitter:description" content="ชิงรถ C 350e AMG + ทองคำ 10 รางวัล มูลค่ารวมกว่า 3.2 ล้านบาท">
+    <meta property="twitter:title" content="Electric Vehicle Association of Thailand (EVAT)">
+    <meta property="twitter:description" content="สมาคมยานยนต์ไฟฟ้าไทย (EVAT) ผู้นำความร่วมมือและพัฒนามาตรฐานอุตสาหกรรมยานยนต์ไฟฟ้าไทย เชื่อมโยงทุกภาคส่วน สร้างระบบนิเวศที่เข้มแข็ง เพื่อผลักดันประเทศไทยสู่ศูนย์กลางยานยนต์ไฟฟ้าแห่งภูมิภาค">
     <meta property="twitter:image" content="{{ url('img/honor/224402.jpg') }}">
+
+
     <link rel="stylesheet" href="{{ url('/home/assets/css/honor.css') }}?v={{ time() }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -127,7 +129,7 @@
         <!-- Header -->
         <header class="page-header">
             <a href="{{ url('/') }}">
-                <img src="{{ url('img/honor/logo@2x.png') }}" alt="HONOR logo" style="margin-left:20px">
+                <img src="{{ url('img/honor/logo-evat.png') }}" alt="OWNDAYS logo" style="margin-left:20px">
             </a>
             <!-- เพิ่ม hamburger menu ได้ที่นี่หากต้องการ -->
             <a href="{{ url('/logout-honor') }}" class="btn-logout-header">
@@ -138,11 +140,10 @@
         <!-- Main Content -->
         <main class="page-content">
             <div class="regis-container" style="text-align: center;">
-                <h1 class="regis-title">สิทธิ์ของฉัน {{ session()->get('phone') }} <br> My eligibility </h1>
-                <p class="regis-subtitle">คุณมีสิทธิ์ลุ้นรางวัลทั้งหมด <br> Total eligibility for the lucky draw</p>
-                <h2 style="font-size: 48px; font-weight: bold; color: #22c55e;">{{ $totalApproved }} สิทธิ์ <span style="font-size: 22px;">(Eligibility)</span></h2>
+                <h1 class="regis-title">สวัสดี<br> คุณ  {{ $receipts[0]->first_name }} {{ $receipts[0]->last_name }}</h1>
+                <p class="regis-subtitle">โปรดตรวจสอบสถานะเข้าร่วมกิจกรรมด้านล่าง</p>
 
-                <a href="{{ url('/regis_user_upslip') }}" class="btn-secondary mt-20">เพิ่มสิทธิ์ลุ้นรางวัล</a>
+                <a href="{{ url('/regis_user_upslip') }}" class="btn-secondary mt-20">อัพโหลดสลิปการชำระเงิน</a>
 
                 <a href="{{ url('/edit-profile') }}" class="btn-confirm mt-20">
                     แก้ไขข้อมูลส่วนตัว
@@ -155,10 +156,9 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>วันที่ส่ง <br> Summit date</th>
-                                    <th>วันที่ซื้อ <br> Purchase date</th>
-                                    <th>IMEI</th>
-                                    <th>สถานะ <br> Status</th>
+                                    <th>วันที่ส่ง</th>
+                                    <th>วันที่ชำระเงิน</th>
+                                    <th>สถานะการสมัคร</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -204,7 +204,6 @@ function thaidate($date)
                                     <tr>
                                         <td>{{ thaidate($r->created_at) }}</td>
                                         <td>{{ thaidate($r->purchase_date) }}</td>
-                                        <td>{{ $r->imei }}</td>
                                         <td>
                                             <span class="status {{ $r->status }}">
                                                 {{ $r->status === 'approved' ? 'Approved' : ($r->status === 'pending' ? 'Pending' : 'Reject') }}
@@ -223,9 +222,10 @@ function thaidate($date)
         <!-- Footer -->
         <footer class="page-footer2">
             <div class="copyright2">
-                © 2025 HONOR Thailand All rights reserved. <br>
+               สมาคมยานยนต์ไฟฟ้าไทย ©2025 All rights reserved. Web <br>
+               Design by Idea Vivat.
                 <a href="{{ url('/terms') }}" class="footer-link">เงื่อนไขกิจกรรม</a> |
-                <a href="{{ url('/privacy-policy') }}" class="footer-link">นโยบายความเป็นส่วนตัว</a>
+                <a href="{{ url('/privacy-policy') }}" class="footer-link">นโยบายคุ้มครองข้อมูลส่วนบุคคล</a>
             </div>
         </footer>
 

@@ -113,7 +113,7 @@ body.index-page .page-wrapper2 {
         <!-- Header -->
         <header class="page-header">
             <a href="{{ url('/') }}">
-                <img src="{{ url('img/honor/logo@2x.png') }}" alt="OWNDAYS logo" style="margin-left:20px">
+                <img src="{{ url('img/honor/logo-evat.png') }}" alt="OWNDAYS logo" style="margin-left:20px">
             </a>
         </header>
         <!-- Main Content -->
