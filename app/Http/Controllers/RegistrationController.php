@@ -452,7 +452,6 @@ public function storeUpload(Request $request)
         'purchase_date' => 'required|date',
         'store_name_select' => 'required|string|max:255',
         'store_name' => 'nullable|string|max:255',
-        'imei'          => ['required', 'digits:15'],
         'receipt_file'    => 'required|file|mimes:jpg,jpeg,png,pdf|max:8120',
     ]);
 
@@ -469,16 +468,7 @@ public function storeUpload(Request $request)
         return redirect('/')->withErrors(['session' => 'Session หมดอายุ กรุณาเริ่มใหม่อีกครั้ง']);
     }
 
-    // ตรวจสอบ IMEI backend
-    $imeiRow = DB::table('honor_imei_list')->where('imei', $request->imei)->first();
 
-    if (!$imeiRow) {
-        return back()->withErrors(['imei' => 'ไม่พบหมายเลข IMEI นี้ในระบบ!']);
-    }
-
-    if ($imeiRow->used == 1) {
-        return back()->withErrors(['imei' => 'หมายเลข IMEI นี้ถูกใช้สิทธิ์แล้ว!']);
-    }
 
     // อัปโหลดไฟล์ไป Spaces
     $filename = 'honor/receipt_file/' . uniqid() . '.' .
@@ -504,7 +494,7 @@ public function storeUpload(Request $request)
         'purchase_date'     => $request->purchase_date,
         'purchase_time'     => null,
         'receipt_number'    => null,
-        'imei'              => $request->imei,
+        'imei'              => null,
         'store_name'        => $storeName,
         'receipt_file_path' => $fullUrl,
     ]);

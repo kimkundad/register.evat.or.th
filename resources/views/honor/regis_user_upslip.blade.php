@@ -111,16 +111,16 @@
         <!-- Main Content -->
         <main class="page-content">
             <div class="regis-container">
-                <h1 class="regis-title">ส่งข้อมูลการซื้อ <br> Submit purchase information</h1>
+                <h1 class="regis-title">ยืนยันการชำระเงิน </h1>
                 <p class="regis-subtitle">
-                    กรอกข้อมูลการซื้อสินค้าของคุณให้ครบถ้วน เพื่อรับสิทธิ์ลุ้นรางวัล <br>Fill in your purchase details completely to qualify for a lucky draw
+                    กรอกข้อมูลยืนยันการชำระเงินของคุณให้ครบถ้วน เพื่อรับสิทธิ์ลุ้นรางวัล <br>Fill in your purchase details completely to qualify for a lucky draw
                 </p>
 
                 <form method="POST" action="{{ url('/regis_user_upslip') }}" onsubmit="return validateForm();" class="regis-form"
                     enctype="multipart/form-data">
                     @csrf
 
-                    <label for="purchase_day">วันที่ซื้อสินค้า (Purchase date)</label>
+                    <label for="purchase_day">วันที่ชำระเงิน (Purchase date)</label>
 
                     <div class="hbd-wrapper">
 
@@ -174,41 +174,9 @@
                         หลักตัวเลขเท่านั้น)</p> --}}
 
 
-                        <label>หมายเลข IMEI เครื่อง (Enter 15-digit IMEI number)</label>
-                        <div class="imei-group">
-                            <input
-                                type="text"
-                                name="imei"
-                                id="imei"
-                                maxlength="15"
-                                class="regis-input imei-input"
-                                placeholder="กรอกหมายเลข IMEI 15 หลัก"
-                                required
-                            >
 
-                            <button type="button" id="check-imei-btn" class="btn-check-imei" style="font-family: 'Anuphan', sans-serif;font-size: 18px;padding: 16px 16px;">
-                                Verify
-                            </button>
 
-                            <span id="imei-status" class="imei-status"></span>
-                        </div>
-
-                        <p class="imei-note">
-                            <strong>**หมายเหตุ:</strong><br>
-                            • สามารถตรวจสอบหมายเลข IMEI ได้โดยกด *#06# บนโทรศัพท์<br>
-                            • ใช้หมายเลข IMEI 1 เพื่อลงทะเบียนลุ้นรางวัลได้ 1 สิทธิ์<br>
-                            • ผู้ลงทะเบียน 1 คน สามารถลงทะเบียนได้มากกว่า 1 สิทธิ์
-                        </p>
-                        <p class="imei-note">
-                            <strong>**Remarks:</strong><br>
-                            • You can check the IMEI number by dialing *#06# on your phone<br>
-                            • Use IMEI 1 to register and receive 1 entry for the lucky draw<br>
-                            • One registrant can register for more than one entry
-                        </p>
-
-                        <p id="imei-error" class="input-error" style="display:none;">กรุณากรอก IMEI ให้ถูกต้อง</p>
-
-                    <label>ร้านค้าที่ซื้อ (Store)</label>
+                    <label>ท่านรู้จักกิจกรรมนี้ที่ไหน </label>
 
                     <select name="store_name_select" id="store_name_select" class="regis-input" required>
                         <option value="">เลือกร้านค้า / Store</option>
@@ -346,7 +314,7 @@ function validateForm() {
     if (!d || !m || !y_th) {
         Swal.fire({
             icon: "warning",
-            title: "กรุณาเลือกวันที่ซื้อสินค้าให้ครบถ้วน"
+            title: "กรุณาเลือกวันที่ชำระเงินให้ครบถ้วน"
         });
         return false;
     }
@@ -369,7 +337,7 @@ function validateForm() {
         Swal.fire({
             icon: "error",
             title: "ข้อมูลไม่ถูกต้อง",
-            text: "วันที่ซื้อสินค้าต้องไม่เกินวันปัจจุบัน"
+            text: "วันที่ชำระเงินต้องไม่เกินวันปัจจุบัน"
         });
         return false;
     }
@@ -381,73 +349,14 @@ function validateForm() {
     // ------------------------------
     // 2) ตรวจสอบ IMEI (ต้องตรวจสอบก่อนส่ง)
     // ------------------------------
-    if (!window.imei_valid) {
-        Swal.fire({
-            icon: "error",
-            title: "กรุณากดปุ่มตรวจสอบ IMEI ก่อนส่งข้อมูล"
-        });
-        return false;
-    }
+
 
     // ผ่านทั้งหมด → ส่งฟอร์มได้
     return true;
 }
 </script>
- <!-- JS ตรวจสอบ IMEI -->
-<script>
-document.getElementById("check-imei-btn").addEventListener("click", function () {
-
-    let imei = document.getElementById("imei").value.trim();
-    let status = document.getElementById("imei-status");
-    let error = document.getElementById("imei-error");
-    let imeiInput = document.getElementById("imei");
-
-    status.innerHTML = "";
-    status.className = "imei-status";
-
-    if (!/^\d{15}$/.test(imei)) {
-        error.style.display = "block";
-        imeiInput.classList.add("error");
-        status.innerHTML = "✕";
-        status.classList.add("error");
-        window.imei_valid = false;
-        return;
-    }
-
-    error.style.display = "none";
-
-    fetch("{{ url('/check-imei') }}", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-        },
-        body: JSON.stringify({ imei: imei })
-    })
-    .then(res => res.json())
-    .then(data => {
-
-        imeiInput.classList.remove("error", "success");
-
-        if (data.valid) {
-            imeiInput.classList.add("success");
-            status.classList.add("success");
-            status.innerHTML = "✓";
-            window.imei_valid = true;
-
-        } else {
-            imeiInput.classList.add("error");
-            status.classList.add("error");
-            status.innerHTML = "✕";
-            window.imei_valid = false;
-
-            alert(data.used ? "หมายเลข IMEI นี้ถูกใช้สิทธิ์แล้ว" : data.message);
-        }
-    });
-});
 
 
-</script>
 
 
 
