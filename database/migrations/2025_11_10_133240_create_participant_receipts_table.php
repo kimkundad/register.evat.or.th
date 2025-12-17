@@ -26,8 +26,10 @@ return new class extends Migration
             $table->string('receipt_file_path')->nullable();
             $table->enum('status', ['pending','approved','failed'])->default('pending');
             $table->timestamps();
+            $table->string('hbd')->nullable();
         });
     }
+
 
     /**
      * Reverse the migrations.

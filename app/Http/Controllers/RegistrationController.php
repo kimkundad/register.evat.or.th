@@ -453,6 +453,7 @@ public function storeUpload(Request $request)
         'store_name_select' => 'required|string|max:255',
         'store_name' => 'nullable|string|max:255',
         'imei'          => ['required', 'digits:15'],
+        'receipt_file'    => 'required|file|mimes:jpg,jpeg,png,pdf|max:8120',
     ]);
 
     // เลือกร้านค้า
@@ -479,6 +480,14 @@ public function storeUpload(Request $request)
         return back()->withErrors(['imei' => 'หมายเลข IMEI นี้ถูกใช้สิทธิ์แล้ว!']);
     }
 
+    // อัปโหลดไฟล์ไป Spaces
+    $filename = 'honor/receipt_file/' . uniqid() . '.' .
+                $request->file('receipt_file')->getClientOriginalExtension();
+
+    Storage::disk('spaces')->put($filename, file_get_contents($request->file('receipt_file')), 'public');
+
+    $fullUrl = config('filesystems.disks.spaces.url') . '/' . $filename;
+
     // บันทึกข้อมูลลงฐานข้อมูล participant_receipts
     $new = participant_receipt::create([
         'phone'             => $phone,
@@ -497,7 +506,7 @@ public function storeUpload(Request $request)
         'receipt_number'    => null,
         'imei'              => $request->imei,
         'store_name'        => $storeName,
-        'receipt_file_path' => null,
+        'receipt_file_path' => $fullUrl,
     ]);
 
     // อัพเดทสถานะ IMEI ว่า "ใช้แล้ว"

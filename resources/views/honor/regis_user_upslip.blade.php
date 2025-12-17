@@ -237,6 +237,17 @@
                     >
 
 
+                    <label>อัปโหลดใบเสร็จ (ภาพ JPG/PNG/PDF)</label>
+                    <input type="file" name="receipt_file" id="receipt_file" class="regis-input"
+                        accept=".jpg,.jpeg,.png,.pdf" required>
+                    <!-- 🔽 ตรงนี้คือจุดแสดง preview -->
+                    <div id="preview-container" class="mt-10">
+                        <img id="preview-image" style="max-width: 100%; display: none; border-radius: 8px;"
+                            alt="Preview Receipt">
+                        <p id="preview-filename" class="info-text" style="display:none;"></p>
+                    </div>
+
+                    <p class="info-text">ขนาดไฟล์ไม่เกิน 5MB / 1 ใบเสร็จต่อ 1 สิทธิ์</p>
 
 
                     <div class="text-center">
@@ -284,6 +295,38 @@ document.getElementById("store_name_select").addEventListener("change", function
         document.getElementById("store_name_other").value = this.value;
     }
 });
+</script>
+
+
+    <script>
+  document.getElementById('receipt_file').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    const image = document.getElementById('preview-image');
+    const filename = document.getElementById('preview-filename');
+
+    if (!file) return;
+
+    const fileType = file.type;
+    const validImageTypes = ['image/jpeg', 'image/png'];
+
+    if (validImageTypes.includes(fileType)) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        image.src = e.target.result;
+        image.style.display = 'block';
+        filename.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    } else if (fileType === 'application/pdf') {
+      image.style.display = 'none';
+      filename.textContent = `📄 ไฟล์ PDF: ${file.name}`;
+      filename.style.display = 'block';
+    } else {
+      image.style.display = 'none';
+      filename.textContent = 'ไฟล์ไม่รองรับ กรุณาเลือก JPG, PNG หรือ PDF';
+      filename.style.display = 'block';
+    }
+  });
 </script>
 
 
