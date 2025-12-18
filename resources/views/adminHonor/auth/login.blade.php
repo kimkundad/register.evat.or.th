@@ -65,8 +65,8 @@
 
         {{-- หัว --}}
         <div class="mb-4 text-center">
-            <div class="brand-title mb-1">HONOR Campaign Admin</div>
-            <div class="login-subtitle">เข้าสู่ระบบเพื่อจัดการกิจกรรม & รายการใบเสร็จ</div>
+            <div class="brand-title mb-1">Welcome</div>
+            <div class="login-subtitle">Member of Electric Vehicle Association of Thailand</div>
         </div>
 
         {{-- แสดง error --}}
@@ -122,7 +122,7 @@
             </div>
 
             <div class="text-center small-link mt-2 text-muted">
-                ใช้สำหรับทีมงานแคมเปญ HONOR เท่านั้น
+                ใช้สำหรับทีมงานแคมเปญ Evat เท่านั้น
             </div>
         </form>
     </div>
