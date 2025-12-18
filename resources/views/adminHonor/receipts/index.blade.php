@@ -207,7 +207,7 @@
                     <div class="col-md-4">
                         <label class="form-label fw-semibold">ค้นหา</label>
                         <input type="text" class="form-control" name="q" value="{{ request('q') }}"
-                            placeholder="ค้นหา: ใบเสร็จ / IMEI / ชื่อ / เบอร์โทร / อีเมล">
+                            placeholder="ค้นหา: ใบเสร็จ / ชื่อ / เบอร์โทร / อีเมล">
                     </div>
 
                     {{-- Status --}}
