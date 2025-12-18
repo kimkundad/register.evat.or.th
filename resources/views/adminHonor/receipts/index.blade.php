@@ -109,9 +109,9 @@
             </div>
 
             <div>
-                <a href="{{ url('admin-evat/imei-list') ?? '#' }}" class="btn btn-dark">
+                {{-- <a href="{{ url('admin-evat/imei-list') ?? '#' }}" class="btn btn-dark">
                     หมายเลข IMEI
-                </a>
+                </a> --}}
                 <a href="{{ route('adminHonor.receipts.logs') ?? '#' }}" class="btn btn-dark">
                     Logs
                 </a>
@@ -500,11 +500,11 @@
 
                         </div>
                         <div class="col-md-6">
-                            <p class="mb-1"><strong>วันที่ซื้อ:</strong> <span id="detail-purchase-date">-</span></p>
-                            <p class="mb-1"><strong>เวลาที่ซื้อ:</strong> <span id="detail-purchase-time">-</span></p>
+                            <p class="mb-1"><strong>วันที่ชำระเงิน:</strong> <span id="detail-purchase-date">-</span></p>
+                            <p class="mb-1"><strong>เวลาที่ชำระเงิน:</strong> <span id="detail-purchase-time">-</span></p>
                             <p class="mb-1"><strong>หมายเลขใบเสร็จ:</strong> <span id="detail-receipt-number">-</span>
                             </p>
-                            <p class="mb-1"><strong>IMEI:</strong> <span id="detail-imei">-</span></p>
+                            {{-- <p class="mb-1"><strong>IMEI:</strong> <span id="detail-imei">-</span></p> --}}
                             <p class="mb-1"><strong>ร้านค้า:</strong> <span id="detail-store">-</span></p>
                             <p class="mb-1"><strong>สถานะ:</strong>
                                 <span id="detail-status" class="status-text">-</span>
