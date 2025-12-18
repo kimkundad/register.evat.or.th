@@ -23,7 +23,7 @@
 
         <!-- Back button -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-5 mt-md-10 mb-6">
-            <a href="{{ url('admin-honor/receipts') }}" class="btn btn-danger">
+            <a href="{{ url('admin-evat/receipts') }}" class="btn btn-danger">
                 กลับหน้าแรก
             </a>
         </div>

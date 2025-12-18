@@ -29,10 +29,10 @@ Auth::routes();
 
 
 
-Route::post('/admin-honor/logout', [LoginController::class, 'logout'])
+Route::post('/admin-evat/logout', [LoginController::class, 'logout'])
     ->name('adminHonor.logout');
 
-    Route::get('/admin-honor/logout', [LoginController::class, 'logout'])
+    Route::get('/admin-evat/logout', [LoginController::class, 'logout'])
     ->name('adminHonor.logout');
 
 
@@ -90,16 +90,16 @@ Route::post('/admin-honor/logout', [LoginController::class, 'logout'])
 //});
 
 // ---------- ROUTE LOGIN ใหม่ (ไม่เกี่ยวกับ login เดิมของ Laravel) ----------
-Route::get('/admin-honor/login', [LoginController::class, 'showLoginForm'])
+Route::get('/admin-evat/login', [LoginController::class, 'showLoginForm'])
     ->name('adminHonor.login');
 
-Route::post('/admin-honor/login', [LoginController::class, 'login'])
+Route::post('/admin-evat/login', [LoginController::class, 'login'])
     ->name('adminHonor.login.post');
 
 
 
 
-Route::prefix('admin-honor')
+Route::prefix('admin-evat')
     ->name('adminHonor.')
     ->middleware(['auth']) // ถ้าต้องการล็อกอินก่อนค่อยใส่ middleware ตรงนี้
     ->group(function () {

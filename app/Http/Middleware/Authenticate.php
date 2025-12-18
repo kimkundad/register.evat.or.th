@@ -13,7 +13,7 @@ class Authenticate extends Middleware
 
             // ✅ ถ้าเป็นเส้นทางของ honor admin
             if (
-                $request->is('admin-honor/*') ||                 // URL path ขึ้นต้นด้วย admin-honor
+                $request->is('admin-evat/*') ||                 // URL path ขึ้นต้นด้วย admin-evat
                 $request->routeIs('adminHonor.*') ||             // ชื่อ route ขึ้นต้นด้วย adminHonor.
                 $request->getHost() === 'honor.mawathecreation.com' // หรือมาจากโดเมน honor โดยตรง
             ) {

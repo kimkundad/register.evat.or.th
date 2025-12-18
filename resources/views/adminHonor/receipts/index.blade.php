@@ -109,7 +109,7 @@
             </div>
 
             <div>
-                <a href="{{ url('admin-honor/imei-list') ?? '#' }}" class="btn btn-dark">
+                <a href="{{ url('admin-evat/imei-list') ?? '#' }}" class="btn btn-dark">
                     หมายเลข IMEI
                 </a>
                 <a href="{{ route('adminHonor.receipts.logs') ?? '#' }}" class="btn btn-dark">
@@ -118,7 +118,7 @@
                 <a href="{{ route('adminHonor.receipts.export') ?? '#' }}" class="btn btn-dark">
                     Export ข้อมูล
                 </a>
-                <a href="{{ url('/admin-honor/logout') ?? '#' }}" class="btn btn-danger">
+                <a href="{{ url('/admin-evat/logout') ?? '#' }}" class="btn btn-danger">
                     ออกจากระบบ
                 </a>
             </div>
@@ -576,7 +576,7 @@ flatpickr(".date-picker", {
                     rejectImei.textContent = imei;
 
                     // ตั้ง action url = receipts/{id}/reject
-                    rejectForm.action = `/admin-honor/receipts/${id}/reject`;
+                    rejectForm.action = `/admin-evat/receipts/${id}/reject`;
 
                     // เปิด modal
                     rejectModal.show();
