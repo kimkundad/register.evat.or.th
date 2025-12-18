@@ -284,11 +284,11 @@
                         <thead>
                             <tr class="text-start text-gray-500 fw-bold text-uppercase">
                                 <th>ลำดับ</th>
-                                <th class="min-w-120px">เวลาที่ลงทะเบียน</th>
+                                <th class="min-w-120px">วันที่ส่ง</th>
+                                <th class="min-w-120px">วันที่ชำระเงิน</th>
                                 <th class="min-w-160px">ชื่อผู้ใช้</th>
                                 <th class="min-w-180px1">เบอร์โทร</th>
-                                <th class="min-w-140px">IMEI</th>
-                                <th class="min-w-100px">ร้านค้าที่ซื้อ</th>
+                                <th class="min-w-100px">รู้จักกิจกรรม</th>
                                 <th class="min-w-100px">วันเกิด</th>
                                 <th class="min-w-100px">สถานะ</th>
                                 <th class="min-w-180px">วันที่ตรวจสอบ</th>
@@ -312,6 +312,14 @@
                                         <small class="text-muted">{{ $dt->format('H:i') }} น.</small>
                                     </td>
 
+                                    <td>
+                                     @php
+                                            \Carbon\Carbon::setLocale('th');
+                                            $dt = \Carbon\Carbon::parse($r->purchase_date);
+                                        @endphp
+                                        {{ $dt->translatedFormat('j F Y') }}<br>
+                                        <small class="text-muted">{{ $dt->format('H:i') }} น.</small>  </td>
+
                                     {{-- ชื่อผู้ใช้ --}}
                                     <td>{{ $r->user_name ?? '-' }}</td>
 
@@ -320,8 +328,6 @@
                                     {{-- หมายเลขใบเสร็จ --}}
 
 
-                                    {{-- IMEI --}}
-                                    <td>{{ $r->imei ?? '-' }}</td>
 
                                     {{-- รุ่น --}}
                                     <td>{{ $r->model ?? '-' }}</td>
